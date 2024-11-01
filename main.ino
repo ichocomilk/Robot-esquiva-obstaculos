@@ -51,18 +51,18 @@ void loop() {
   delay(50);
   const int rightDistance = right.ping_cm();
 
-  int maxDistance = 0;
+  int maxDistance = MIN_DISTANCE;
   int direction = BACK_DIRECTION;
 
-  if (frontDistance > MIN_DISTANCE) {
+  if (frontDistance > maxDistance) {
     maxDistance = frontDistance;
     direction = FRONT_DIRECTION;
   }
-  if (leftDistance > maxDistance && leftDistance > MIN_DISTANCE) {
+  if (leftDistance > maxDistance) {
     maxDistance = leftDistance;
     direction = LEFT_DIRECTION;
   }
-  if (rightDistance > maxDistance && rightDistance > MIN_DISTANCE) {
+  if (rightDistance > maxDistance) {
     maxDistance = rightDistance;
     direction = RIGHT_DIRECTION;
   }
